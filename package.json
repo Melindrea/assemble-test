@@ -1,24 +1,41 @@
 {
-  "name": "assemble-test",
-  "version": "0.1.0",
-  "description": "Building a site in AssembleJS",
-  "main": "assemble",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "Marie Hogebrandt",
+  "bugs": {
+    "url": "https://github.com/Melindrea/assemble-test/issues"
   },
+  "config": {
+    "dist": "build",
+    "jshint_reporter": "node_modules/jshint-stylish/stylish.js"
+  },
+  "description": "Building a site in AssembleJS",
+  "devDependencies": {
+    "assemble": "git://github.com/assemble/assemble.git#v0.6.0",
+    "handlebars-helpers": "git://github.com/doowb/handlebars-helpers#v0.7.0",
+    "html5-lint": "^0.2.3",
+    "jshint": "^2.5.10",
+    "jshint-stylish": "^1.0.0",
+    "jsonlint": "^1.6.2",
+    "moment": "^2.8.4",
+    "rimraf": "^2.2.8",
+    "underscore.string": "^2.4.0",
+    "yamljs": "^0.2.1",
+    "yargs": "^1.3.3"
+  },
+  "homepage": "https://github.com/Melindrea/assemble-test",
+  "license": "MIT",
+  "main": "assemble",
+  "name": "assemble-test",
   "repository": {
     "type": "git",
     "url": "https://github.com/Melindrea/assemble-test.git"
   },
-  "author": "Marie Hogebrandt",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Melindrea/assemble-test/issues"
+  "scripts": {
+    "clean": "rimraf $npm_package_config_dist",
+    "jslint": "jshint --reporter $npm_package_config_jshint_reporter *.js",
+    "jsonlint": "jsonlint -si **.json --indent '    '",
+    "htmllint": "node lib/html-validator.js",
+    "lint": "npm run jslint && npm run jsonlint",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/Melindrea/assemble-test",
-  "devDependencies": {
-    "assemble": "git://github.com/assemble/assemble.git#v0.6.0",
-    "yamljs": "^0.2.1",
-    "yargs": "^1.3.3"
-  }
+  "version": "0.1.0"
 }

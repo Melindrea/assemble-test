@@ -1,7 +1,5 @@
-# Assemble directories
+# Assemble directories & options
 assemble:
-    build:
-        root: _gh_pages
     system:
         root: bonnet
         layouts: layouts
@@ -9,3 +7,5 @@ assemble:
         partials: partials
     content:
         root: content
+    options:
+        layout: master
