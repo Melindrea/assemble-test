@@ -1,10 +1,12 @@
 'use strict';
 
-var npmInfo = require('./package.json'),
+var pkg = require('./package.json'),
 YAML = require('yamljs'),
 argv = require('yargs').argv,
 dataDir = argv.dataDir || 'data',
-siteConfig =  YAML.load(dataDir + '/site.yaml');
+siteConfig =  YAML.load(dataDir + '/site.yaml'),
+colors = require('colors');
+colors.setTheme(siteConfig.consoleColor);
 
 // Based on http://blog.codehatcher.com/node-js-alternate-config-file
 module.exports = (function () {
@@ -19,7 +21,7 @@ module.exports = (function () {
         env: 'local', //should be env/prod
         site: siteConfig,
         dataDir: dataDir,
-        pkg: npmInfo
+        pkg: pkg
       };
     case 'dev':
     case 'development':
@@ -27,7 +29,7 @@ module.exports = (function () {
         env: 'dev', //should be env/prod
         site: siteConfig,
         dataDir: dataDir,
-        pkg: npmInfo
+        pkg: pkg
       };
     case 'test':
     case 'testing':
@@ -35,7 +37,7 @@ module.exports = (function () {
         env: 'test', //should be env/prod, can be changed to prod when we are comfy with prod environ
         site: siteConfig,
         dataDir: dataDir,
-        pkg: npmInfo
+        pkg: pkg
       };
     case 'prod':
     case 'production':
@@ -43,7 +45,7 @@ module.exports = (function () {
         env: 'prod', //should be env/prod, can be changed to prod when we are comfy with prod environ
         site: siteConfig,
         dataDir: dataDir,
-        pkg: npmInfo
+        pkg: pkg
       };
     default:
       throw new Error('Environment Not Recognized');

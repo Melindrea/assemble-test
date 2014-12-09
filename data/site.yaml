@@ -9,3 +9,9 @@ assemble:
         root: content
     options:
         layout: master
+
+consoleColor:
+    normal: cyan
+    warning: yellow
+    debug: blue
+    error: red
