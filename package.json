@@ -1,0 +1,24 @@
+{
+  "name": "assemble-test",
+  "version": "0.1.0",
+  "description": "Building a site in AssembleJS",
+  "main": "assemble",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Melindrea/assemble-test.git"
+  },
+  "author": "Marie Hogebrandt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Melindrea/assemble-test/issues"
+  },
+  "homepage": "https://github.com/Melindrea/assemble-test",
+  "devDependencies": {
+    "assemble": "git://github.com/assemble/assemble.git#v0.6.0",
+    "yamljs": "^0.2.1",
+    "yargs": "^1.3.3"
+  }
+}

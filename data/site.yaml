@@ -1,0 +1,11 @@
+# Assemble directories
+assemble:
+    build:
+        root: _gh_pages
+    system:
+        root: bonnet
+        layouts: layouts
+        helpers: helpers
+        partials: partials
+    content:
+        root: content
