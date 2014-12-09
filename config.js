@@ -10,9 +10,8 @@ colors.setTheme(siteConfig.consoleColor);
 
 // Based on http://blog.codehatcher.com/node-js-alternate-config-file
 module.exports = (function () {
-  console.log('Node Env Variable: ' + process.env.NODE_ENV);
+  // console.log('Node Env Variable: ' + process.env.NODE_ENV);
 
-  // istanbul ignore next: don't look at the env variables
   switch (process.env.NODE_ENV) {
     case null:
     case undefined:

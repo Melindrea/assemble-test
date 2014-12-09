@@ -1,0 +1,17 @@
+<ul class="post-list">
+    {{#each posts}}<li>
+        <article class="hentry">
+            <header>
+                {{ thumbnailImage featuredImage }}
+                <h2 class="entry-title"><a href="{{ href }}">{{ title }}</a></h2>
+                {{ postMeta posted }}
+            </header>
+            <div class="entry-summary">
+                <p>{{ summary }}</p>
+            </div>
+        </article>
+    </li>{{/each}}
+</ul>
+{{#if pagination}}<!-- wp-pagenavi can be renamed, but the classes are used --><div class="wp-pagenavi">
+    <span class="pages">Page 1 of 4</span><span class="current">1</span><a class="page larger" href="/articles/page/2/">2</a><a class="page larger" href="/articles/page/3/">3</a><a class="page larger" href="/articles/page/4/">4</a><a class="nextpostslink" rel="next" href="/articles/page/2/">»</a>
+</div>{{/if}}

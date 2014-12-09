@@ -1,0 +1,8 @@
+<nav id="nav-main" role="navigation">
+    <ul id="menu-primary-navigation" class="menu">
+        {{#each menuItems}}
+        <li{{#if currentPage }} class="active"{{/if}}>
+            <a href="{{ link }}">{{ name }}</a>
+        </li>{{/each}}
+    </ul>
+</nav>

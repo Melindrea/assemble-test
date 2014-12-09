@@ -1,0 +1,14 @@
+<section class="widget widget-global-activity">
+    <ul>
+        {{#each posts}}
+        <li>
+            <article class="activity-item">
+                <h4 class="activity-header">
+                    {{#if icon}}<span class="icon icon-{{ icon }}" aria-hidden="true"></span> {{/if}}<a href="{{ link }}" >{{ topic }}</a>
+                </h4>
+                <p class="activity-description">{{ description }}</p>
+            </article>
+        </li>
+        {{/each}}
+    </ul>
+</section>

@@ -14,6 +14,6 @@ assemble.partials(system.root + '/' + system.partials + '/**.hbs');
 assemble.option(config.site.assemble.options);
 
 assemble.task('default', function() {
-  assemble.src(content.root + '/**.md')
+  assemble.src(content.root + '/_pages/**.hbs')
     .pipe(assemble.dest(buildDir));
 });

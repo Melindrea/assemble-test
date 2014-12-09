@@ -1,0 +1,26 @@
+---
+layout: master.hbs
+---
+<div class="l-container content-first" role="document">
+    <main id="content" role="main">
+        <article class="inner{{#if post}} h-entry single{{/if}}">
+            {{> page-header }}
+        {{#if page.post}}<div class="entry-content">{{/if}}
+            {{ featuredImage page.featuredImage }}
+            {{#markdown}}
+              {{> body}}
+            {{/markdown}}
+        {{#if page.post}}</div>
+        <footer class="entry-footer">
+            {{ postMeta posted }}
+        </footer>
+        {{/if}}
+        </article>
+    </main>
+
+    <aside id="sidebar" class="widget-area" role="complementary">
+        <div class="inner">
+            {{ widgets page }}
+        </div>
+    </aside>
+</div>

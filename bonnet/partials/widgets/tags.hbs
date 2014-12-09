@@ -1,0 +1,8 @@
+<section class="widget widget-tags">
+    <h3>Tags</h3>
+    {{#if tags}}<ul>
+        {{#each tags}}<li>
+            <a href="{{ href }}" rel="tag">{{ name }}</a>
+        </li>{{/each}}
+    </ul>{{/if}}
+</section>

@@ -1,0 +1,9 @@
+<header class="page-header">
+    <h1{{#if page.post}} class="entry-title"{{/if}}>{{ pageTitle }}</h1>
+    {{#if subtitle}}
+    <div class="subtitle">{{ subtitle }}</div>
+    {{/if}}
+    {{#if page.post}}{{#if excerpt}}<div class="entry-summary">
+        <p>{{ excerpt }}</p>
+    </div>{{/if}}{{/if}}
+</header>

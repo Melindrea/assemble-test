@@ -1,0 +1,12 @@
+<section class="widget widget-entry-navigation">
+    <h3>Inspiration</h3>
+    <ul class="entry-navigation">
+        {{#if previousEntry}}<li class="previous-entry">
+            <span class="icon icon-angle-double-left" aria-hidden="true"></span> <a href="{{ previousEntry.href }}" rel="prev">{{ previousEntry.title }}</a>
+        </li>{{/if}}
+        {{#if nextEntry}}<li class="next-entry">
+            <span class="icon icon-angle-double-right" aria-hidden="true"></span> <a href="{{ nextEntry.href }}" rel="next">{{ nextEntry.title }}</a>
+        </li>{{/if}}
+        {{#if randomEntry }}<li class="random-entry"><span class="icon icon-random" aria-hidden="true"></span> <a href="{{ randomEntry.href }}">Random Entry</a></li>{{/if}}
+    </ul>
+</section>
