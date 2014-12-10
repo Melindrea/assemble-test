@@ -4,8 +4,7 @@
         "url": "https://github.com/Melindrea/assemble-test/issues"
     },
     "config": {
-        "dist": "build",
-        "jshint_reporter": "node_modules/jshint-stylish/stylish.js"
+        "dist": "build"
     },
     "description": "Building a site in AssembleJS",
     "devDependencies": {
@@ -35,10 +34,11 @@
         "build": "npm run clean && assemble",
         "clean": "rimraf $npm_package_config_dist",
         "htmllint": "node lib/html-validator.js",
-        "jslint": "jshint --reporter $npm_package_config_jshint_reporter *.js",
+        "jslint": "jshint --reporter node_modules/jshint-stylish/stylish.js **.js lib/**.js",
         "jsonlint": "jsonlint -si **.json --indent '    '",
-        "lint": "npm run jslint && npm run jsonlint && npm run htmllint",
-        "postbuild": "npm run lint",
+        "lint": "npm run jslint && npm run jsonlint",
+        "postbuild": "npm run htmllint",
+        "prebuild": "npm run lint",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "version": "0.1.0"
