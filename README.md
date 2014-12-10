@@ -15,10 +15,11 @@ Testing to get my site over to assemble V0.6.0
     node_modules (ignored in .gitignore)
     bower_components (ignore in .gitignore)
     config.js
+    -lib
+        -helpers
     -data
         site.yaml
     -content
     -bonnet
         -layouts
-        -helpers
         -partials

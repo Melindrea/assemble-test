@@ -3,7 +3,7 @@ assemble:
     system:
         root: bonnet
         layouts: layouts
-        helpers: helpers
+        helpers: lib/helpers
         partials: partials
     content:
         root: content
