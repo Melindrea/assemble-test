@@ -1,23 +1,38 @@
 'use strict';
 
+// Connected to globbing patterns
+function extend(a, b) {
+    for (var key in b) {
+        if (b.hasOwnProperty(key)) {
+            a[key] = b[key];
+        }
+    }
+    return a;
+}
+
 var assemble = require('assemble'),
 config = require('./config.js'),
 buildDir = config.pkg.config.dist,
 system = config.site.assemble.system,
-content = config.site.assemble.content;
+content = config.site.assemble.content,
+
+// Should eventually be able to be replaced, once the globbing pattern works
+path = require('path'),
+glob = require('glob'),
+helperFiles = glob.sync(system.helpers + '/{,*/}helper-**.js'),
+helpers = helperFiles.reduce(function (acc, fp) {
+    return extend(acc, require(path.resolve(fp)));
+}, {});
 
 // Load system
 assemble.layouts(system.root + '/' + system.layouts + '/**.hbs');
 // assemble.helpers(system.helpers + '/{,*/}helper-**.js');
-// assemble.helpers('lib/helpers/helper-*.js');
-// var helpers = require('./lib/helpers/helper-test');
-// assemble.helpers(helpers);
-assemble.helper('test', require('./lib/helpers/helper-test'));
+assemble.helpers(helpers);
 assemble.partials(system.root + '/' + system.partials + '/**.hbs');
 
 assemble.option(config.site.assemble.options);
 
 assemble.task('default', function() {
-  assemble.src(content.root + '/_pages/**.hbs')
+    assemble.src(content.root + '/_pages/**.hbs')
     .pipe(assemble.dest(buildDir));
 });

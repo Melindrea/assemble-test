@@ -10,6 +10,7 @@
     "devDependencies": {
         "assemble": "git://github.com/assemble/assemble.git#v0.6.0",
         "colors": "^1.0.3",
+        "glob": "^4.3.1",
         "handlebars-helpers": "git://github.com/doowb/handlebars-helpers#v0.7.0",
         "html5-lint": "^0.2.3",
         "jshint": "^2.5.10",
