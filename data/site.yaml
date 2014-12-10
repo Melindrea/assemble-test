@@ -15,3 +15,60 @@ consoleColor:
     warning: yellow
     debug: blue
     error: red
+
+site:
+    title: Marie Hogebrandt Speaks
+    titleSeparator: "||"
+    baseUrl: http://mariehogebrandt.se
+
+    googleUrl: https://plus.google.com/107792424782860612529
+
+    footer:
+        -
+            text: "© 2013-2014, Marie Hogebrandt"
+            link: http://mariehogebrandt.se
+            icon: false
+            class: copyright
+        -
+            text: Fork on Github
+            link: https://github.com/Melindrea/mariehogebrandt-se
+            icon: github
+            class: github-link
+        -
+            text: Colophon
+            link: /colophon
+            icon: legal
+            class: colophon
+        -
+            text: Feed
+            link: /feed
+            icon: rss
+            class: feed
+
+        -
+            text: "Privacy & Cookies"
+            link: /policy
+            icon: eye
+            class: policy
+
+    contact:
+        -
+            text: Twitter
+            link: https://twitter.com/Melindrea82
+            icon: twitter
+        -
+            text: Github
+            link: https://github.com/Melindrea
+            icon: github
+        -
+            text: LinkedIn
+            link: http://se.linkedin.com/in/mariehogebrandt
+            icon: linkedin
+        -
+            text: DeviantArt
+            link: http://melindrea82.deviantart.com/
+            icon: deviantart
+        -
+            text: Mail
+            link: /contact
+            icon: envelope
