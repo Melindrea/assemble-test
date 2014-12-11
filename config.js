@@ -1,7 +1,6 @@
 'use strict';
 
-// Global vars
-var colors = require('colors');
+var chalk = require('chalk');
 
 // Based on http://blog.codehatcher.com/node-js-alternate-config-file
 module.exports = (function () {
@@ -9,9 +8,12 @@ module.exports = (function () {
     YAML = require('yamljs'),
     argv = require('yargs').argv,
     dataDir = argv.dataDir || 'data',
-    siteConfig =  YAML.load(dataDir + '/site.yaml');
-
-    colors.setTheme(siteConfig.consoleColor);
+    siteConfig =  YAML.load(dataDir + '/site.yaml'),
+    error = chalk.bold.red,
+    warning = chalk.yellow,
+    info = chalk.cyan,
+    debug = chalk.blue,
+    success = chalk.bold;
 
     switch (process.env.NODE_ENV) {
         case null:
@@ -21,7 +23,12 @@ module.exports = (function () {
                 env: 'local', //should be env/prod
                 site: siteConfig,
                 dataDir: dataDir,
-                pkg: pkg
+                pkg: pkg,
+                error: error,
+                warning: warning,
+                info: info,
+                debug: debug,
+                success: success
             };
         case 'dev':
         case 'development':
@@ -29,7 +36,11 @@ module.exports = (function () {
                 env: 'dev', //should be env/prod
                 site: siteConfig,
                 dataDir: dataDir,
-                pkg: pkg
+                pkg: pkg,
+                error: error,
+                warning: warning,
+                info: info,
+                debug: debug
             };
         case 'test':
         case 'testing':
@@ -37,7 +48,11 @@ module.exports = (function () {
                 env: 'test', //should be env/prod, can be changed to prod when we are comfy with prod environ
                 site: siteConfig,
                 dataDir: dataDir,
-                pkg: pkg
+                pkg: pkg,
+                error: error,
+                warning: warning,
+                info: info,
+                debug: debug
             };
         case 'prod':
         case 'production':
@@ -45,7 +60,11 @@ module.exports = (function () {
                 env: 'prod', //should be env/prod, can be changed to prod when we are comfy with prod environ
                 site: siteConfig,
                 dataDir: dataDir,
-                pkg: pkg
+                pkg: pkg,
+                error: error,
+                warning: warning,
+                info: info,
+                debug: debug
             };
         default:
             throw new Error('Environment Not Recognized');

@@ -10,12 +10,6 @@ assemble:
     options:
         layout: master
 
-consoleColor:
-    normal: cyan
-    warning: yellow
-    debug: blue
-    error: red
-
 site:
     title: Marie Hogebrandt Speaks
     titleSeparator: "||"

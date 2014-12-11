@@ -9,6 +9,7 @@
     "description": "Building a site in AssembleJS",
     "devDependencies": {
         "assemble": "git://github.com/assemble/assemble.git#v0.6.0",
+        "chalk": "^0.5.1",
         "colors": "^1.0.3",
         "glob": "^4.3.1",
         "handlebars-helpers": "git://github.com/doowb/handlebars-helpers#v0.7.0",
