@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p assets/{js,css,font,ico,img}
+mkdir -p {raw,}assets/{js,css,font,ico,img}
 mkdir -p styles/{components,mixins,utilities,vendor}
 mkdir -p styles/themes/site/{components,mixins}
 mkdir -p templates/{helpers,middleware,partials,layouts,pages,snippets}
