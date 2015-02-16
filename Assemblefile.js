@@ -11,6 +11,7 @@ function extend(a, b) {
 }
 
 var assemble = require('assemble'),
+extname = require('gulp-extname'),
 config = require('./config.js'),
 buildDir = config.pkg.config.dist,
 system = config.site.assemble.system,
@@ -35,5 +36,6 @@ assemble.option('site', config.site.site);
 
 assemble.task('default', function() {
     assemble.src(content.root + '/_pages/**.hbs')
+    .pipe(extname())
     .pipe(assemble.dest(buildDir));
 });
