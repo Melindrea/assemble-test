@@ -20,11 +20,12 @@ content = config.site.assemble.content,
 // Should eventually be able to be replaced, once the globbing pattern works
 path = require('path'),
 glob = require('glob'),
-helperFiles = glob.sync(system.helpers + '/{,*/}helper-**.js'),
+helperFiles = glob.sync(system.root + '/' + system.helpers + '/{,*/}helper-**.js'),
 helpers = helperFiles.reduce(function (acc, fp) {
     return extend(acc, require(path.resolve(fp)));
 }, {});
 
+console.log(system.helpers + '/{,*/}helper-**.js');
 // Load system
 assemble.layouts(system.root + '/' + system.layouts + '/**.hbs');
 // assemble.helpers(system.helpers + '/{,*/}helper-**.js');
@@ -35,7 +36,7 @@ assemble.option(config.site.assemble.options);
 assemble.option('site', config.site.site);
 
 assemble.task('default', function() {
-    assemble.src(content.root + '/_pages/**.hbs')
+    assemble.src(content.root + '/pages/**.md')
     .pipe(extname())
     .pipe(assemble.dest(buildDir));
 });

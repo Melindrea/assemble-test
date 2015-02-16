@@ -1,9 +1,9 @@
 # Assemble directories & options
 assemble:
     system:
-        root: bonnet
+        root: templates
         layouts: layouts
-        helpers: lib/helpers
+        helpers: helpers
         partials: partials
     content:
         root: content

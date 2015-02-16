@@ -34,7 +34,7 @@
     "url": "https://github.com/Melindrea/assemble-test.git"
   },
   "scripts": {
-    "build": "npm run clean && assemble",
+    "build": "npm run clean && ./node_modules/assemble/bin/assemble.js",
     "clean": "rimraf $npm_package_config_dist",
     "htmllint": "node lib/html-validator.js",
     "jslint": "jshint --reporter node_modules/jshint-stylish/stylish.js **.js lib/**.js",
