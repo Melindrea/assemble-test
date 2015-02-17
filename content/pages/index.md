@@ -16,29 +16,21 @@ In my spare time I explore the new and cool things that pop up every so often, d
 
 * * *
 
-<div class="section">
-    <div class="column">
-        <h2>Likes</h2>
+<!-- [todo] - Add way to create a bit more complex layouts, such as columns -->
+## Likes
 
-        <ul>
-            <li>Clean code</li>
-            <li>Innovative solutions</li>
-            <li>Humanist serif fonts</li>
-            <li>Bad puns</li>
-            <li>Automation</li>
-            <li>Markdown for posts/pages</li>
-    </ul>
-    </div>
-    <div class="column">
-        <h2>Dislikes</h2>
+* Clean code
+* Innovative solutions
+* Humanist serif fonts
+* Bad puns
+* Automation
+* Markdown for posts/pages
 
-        <ul>
-            <li>Repetive tasks</li>
-            <li>Hacks</li>
-            <li>Realist sans-serif fonts</li>
-            <li>Inline CSS and JavaScript (by hand <em>or</em> JavaScript)</li>
-            <li>Hard-to-reproduce bugs</li>
-            <li>What-you-see-is-kind-of-sort-of-what-you-get-in-the-worst-way-possible</li>
-        </ul>
-    </div>
-</div>
+## Dislikes
+
+* Repetive tasks
+* Hacks
+* Realist sans-serif fonts
+* Inline CSS and JavaScript (by hand *or* JavaScript)
+* Hard-to-reproduce bugs
+* What-you-see-is-kind-of-sort-of-what-you-get-in-the-worst-way-possible

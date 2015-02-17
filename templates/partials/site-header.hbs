@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="/styles/site.css">
 
     <link rel="shortcut icon" href="http://mariehogebrandt.se/favicon.ico">
-    <!-- TODO: insert Google Tag Manager -->
+    <!-- [todo] - Insert Google Tag Manager -->
 
 </head>
-<body class="home page"><!-- classes depending on stuff -->
+<body class="{{ bodyClasses }}">
 
   <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -24,5 +24,5 @@
 <header id="site-header" class="l-container" role="banner">
     {{> skip-links }}
     {{> header-contact }}
-    {{ mainNav page }}
+    {{ mainNav }}
 </header>

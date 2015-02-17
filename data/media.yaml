@@ -1,0 +1,12 @@
+directories:
+    image: media/images
+
+images:
+    "jon-and-I":
+        source: jonI.jpg
+        alt: "Old-Fashioned image of Jon and I"
+        sizes:
+            large:
+                width: 297
+                height: 416
+

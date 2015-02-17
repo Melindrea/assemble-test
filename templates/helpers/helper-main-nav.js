@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports.mainNav = function (page) {
-    console.log(page);
+    console.log(this.options.env);
+    // this.context === page
+    // console.log(this.context);
     // var fs = require('fs'),
     // template, data = {},
     // pages = options.collections.inMenu.items[0].pages;

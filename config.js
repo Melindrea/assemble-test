@@ -9,6 +9,7 @@ module.exports = (function () {
     argv = require('yargs').argv,
     dataDir = argv.dataDir || 'data',
     siteConfig =  YAML.load(dataDir + '/site.yaml'),
+    mediaConfig =  YAML.load(dataDir + '/media.yaml'),
     error = chalk.bold.red,
     warning = chalk.yellow,
     info = chalk.cyan,
@@ -20,8 +21,9 @@ module.exports = (function () {
         case undefined:
         case 'local':
             return {
-                env: 'local', //should be env/prod
+                env: 'local',
                 site: siteConfig,
+                media: mediaConfig,
                 dataDir: dataDir,
                 pkg: pkg,
                 error: error,
@@ -33,7 +35,7 @@ module.exports = (function () {
         case 'dev':
         case 'development':
             return {
-                env: 'dev', //should be env/prod
+                env: 'dev',
                 site: siteConfig,
                 dataDir: dataDir,
                 pkg: pkg,
@@ -45,7 +47,7 @@ module.exports = (function () {
         case 'test':
         case 'testing':
             return {
-                env: 'test', //should be env/prod, can be changed to prod when we are comfy with prod environ
+                env: 'test',
                 site: siteConfig,
                 dataDir: dataDir,
                 pkg: pkg,
@@ -57,7 +59,7 @@ module.exports = (function () {
         case 'prod':
         case 'production':
             return {
-                env: 'prod', //should be env/prod, can be changed to prod when we are comfy with prod environ
+                env: 'prod',
                 site: siteConfig,
                 dataDir: dataDir,
                 pkg: pkg,

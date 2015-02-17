@@ -33,6 +33,8 @@ assemble.partials(system.root + '/' + system.partials + '/**.hbs');
 
 assemble.option(config.site.assemble.options);
 assemble.option('site', config.site.site);
+assemble.option('env', config.env);
+assemble.option('media', config.media);
 
 assemble.task('default', function() {
     assemble.src(content.root + '/pages/**.md')
