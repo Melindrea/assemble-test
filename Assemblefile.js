@@ -17,7 +17,8 @@ buildDir = config.pkg.config.dist,
 system = config.site.assemble.system,
 content = config.site.assemble.content,
 
-// Should eventually be able to be replaced, once the globbing pattern works
+// [fix] - Replace once the globbing pattern works
+// helpers = system.helpers + '/{,*/}helper-**.js',
 path = require('path'),
 glob = require('glob'),
 helperFiles = glob.sync(system.root + '/' + system.helpers + '/{,*/}helper-**.js'),
@@ -27,7 +28,6 @@ helpers = helperFiles.reduce(function (acc, fp) {
 
 // Load system
 assemble.layouts(system.root + '/' + system.layouts + '/**.hbs');
-// assemble.helpers(system.helpers + '/{,*/}helper-**.js');
 assemble.helpers(helpers);
 assemble.partials(system.root + '/' + system.partials + '/**.hbs');
 
@@ -39,3 +39,5 @@ assemble.task('default', function() {
         .pipe(extname())
         .pipe(assemble.dest(buildDir));
 });
+
+// [todo] - Implement assets task, which copies files into buildDir
