@@ -25,7 +25,6 @@ helpers = helperFiles.reduce(function (acc, fp) {
     return extend(acc, require(path.resolve(fp)));
 }, {});
 
-console.log(system.helpers + '/{,*/}helper-**.js');
 // Load system
 assemble.layouts(system.root + '/' + system.layouts + '/**.hbs');
 // assemble.helpers(system.helpers + '/{,*/}helper-**.js');
@@ -37,6 +36,6 @@ assemble.option('site', config.site.site);
 
 assemble.task('default', function() {
     assemble.src(content.root + '/pages/**.md')
-    .pipe(extname())
-    .pipe(assemble.dest(buildDir));
+        .pipe(extname())
+        .pipe(assemble.dest(buildDir));
 });
