@@ -36,10 +36,18 @@ assemble.option('site', config.site.site);
 assemble.option('env', config.env);
 assemble.option('media', config.media);
 
-assemble.task('default', function() {
+assemble.task('pages', function() {
     assemble.src(content.root + '/pages/**.md')
         .pipe(extname())
         .pipe(assemble.dest(buildDir));
 });
 
-// [todo] - Implement assets task, which copies files into buildDir
+assemble.task('assets', function() {
+    assemble.src('assets/**', {layout: null})
+        .pipe(assemble.dest(buildDir));
+});
+
+// [todo] - Task to concat/etc JS (including bower/node components)
+// [todo] - Task to compile SCSS files
+
+assemble.task('default', ['pages', 'assets']);

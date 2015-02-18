@@ -1,0 +1,21 @@
+{
+  "name": "MarieHogebrandt.se",
+  "private": "true",
+  "version": "0.1.0",
+  "authors": [
+    "Marie Hogebrandt <iam@mariehogebrandt.se>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "http://mariehogebrandt.se",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+  }
+}

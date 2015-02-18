@@ -1,50 +1,51 @@
 {
-    "author": "Marie Hogebrandt",
-    "bugs": {
-        "url": "https://github.com/Melindrea/assemble-test/issues"
-    },
-    "config": {
-        "dist": "_dist"
-    },
-    "description": "Building a site in AssembleJS",
-    "devDependencies": {
-        "assemble": "git://github.com/assemble/assemble.git#v0.6.0",
-        "chalk": "^0.5.1",
-        "colors": "^1.0.3",
-        "glob": "^4.3.1",
-        "gulp-extname": "^0.2.0",
-        "handlebars-helpers": "git://github.com/doowb/handlebars-helpers#v0.7.0",
-        "html5-lint": "^0.2.3",
-        "jshint": "^2.5.10",
-        "jshint-stylish": "^1.0.0",
-        "jsonlint": "^1.6.2",
-        "moment": "^2.8.4",
-        "rimraf": "^2.2.8",
-        "underscore.string": "^2.4.0",
-        "walk": "^2.3.4",
-        "yamljs": "^0.2.1",
-        "yargs": "^1.3.3"
-    },
-    "homepage": "https://github.com/Melindrea/assemble-test",
-    "license": "MIT",
-    "main": "assemble",
-    "name": "assemble-test",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Melindrea/assemble-test.git"
-    },
-    "scripts": {
-        "assemble": "./node_modules/assemble/bin/assemble.js",
-        "build": "npm run clean && npm run assemble",
-        "clean": "rimraf $npm_package_config_dist",
-        "htmllint": "node lib/html-validator.js",
-        "issues": "watson -s DIRTY",
-        "jslint": "jshint --reporter node_modules/jshint-stylish/stylish.js **.js lib/**.js",
-        "jsonlint": "jsonlint -si **.json --indent '    '",
-        "lint": "npm run jslint && npm run jsonlint",
-        "postbuild": "npm run htmllint",
-        "prebuild": "npm run lint",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "version": "0.1.0"
+  "author": "Marie Hogebrandt",
+  "bugs": {
+    "url": "https://github.com/Melindrea/assemble-test/issues"
+  },
+  "config": {
+    "dist": "_dist"
+  },
+  "description": "Building a site in AssembleJS",
+  "devDependencies": {
+    "assemble": "git://github.com/assemble/assemble.git#v0.6.0",
+    "chalk": "^0.5.1",
+    "colors": "^1.0.3",
+    "fontfaceobserver": "^1.3.0",
+    "glob": "^4.3.1",
+    "gulp-extname": "^0.2.0",
+    "handlebars-helpers": "git://github.com/doowb/handlebars-helpers#v0.7.0",
+    "html5-lint": "^0.2.3",
+    "jshint": "^2.5.10",
+    "jshint-stylish": "^1.0.0",
+    "jsonlint": "^1.6.2",
+    "moment": "^2.8.4",
+    "rimraf": "^2.2.8",
+    "underscore.string": "^2.4.0",
+    "walk": "^2.3.4",
+    "yamljs": "^0.2.1",
+    "yargs": "^1.3.3"
+  },
+  "homepage": "http://mariehogebrandt.se",
+  "license": "MIT",
+  "main": "assemble",
+  "name": "assemble-test",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Melindrea/assemble-test.git"
+  },
+  "scripts": {
+    "assemble": "./node_modules/assemble/bin/assemble.js",
+    "build": "npm run clean && npm run assemble",
+    "clean": "rimraf $npm_package_config_dist",
+    "htmllint": "node lib/html-validator.js",
+    "issues": "watson -s DIRTY",
+    "jslint": "jshint --reporter node_modules/jshint-stylish/stylish.js **.js lib/**.js",
+    "jsonlint": "jsonlint -si **.json --indent '    '",
+    "lint": "npm run jslint && npm run jsonlint",
+    "postbuild": "npm run htmllint",
+    "prebuild": "npm run lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.0"
 }
