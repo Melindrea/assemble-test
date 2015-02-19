@@ -36,18 +36,19 @@ assemble.option('site', config.site.site);
 assemble.option('env', config.env);
 assemble.option('media', config.media);
 
-assemble.task('pages', function() {
+assemble.task('pages', function () {
     assemble.src(content.root + '/pages/**.md')
         .pipe(extname())
         .pipe(assemble.dest(buildDir));
 });
 
-assemble.task('assets', function() {
+assemble.task('assets', function () {
     assemble.src('assets/**', {layout: null})
         .pipe(assemble.dest(buildDir));
 });
 
 // [todo] - Task to concat/etc JS (including bower/node components)
 // [todo] - Task to compile SCSS files
+// http://pleeease.io/workflow/
 
 assemble.task('default', ['pages', 'assets']);

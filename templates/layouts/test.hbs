@@ -1,0 +1,19 @@
+---
+layout: master
+---
+<div class="l-container content-first" role="document">
+    <main id="content" role="main">
+        <article class="inner{{#if post}} h-entry single{{/if}}">
+            {{> page-header }}
+            {{#if post}}<div class="entry-content">{{/if}}
+                {{ featuredImage featuredImage }}
+                {{#markdown}}
+                    {% body %}
+                {{/markdown}}
+            {{#if post}}</div>
+            <footer class="entry-footer">
+            </footer>
+            {{/if}}
+        </article>
+    </main>
+</div>

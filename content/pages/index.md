@@ -17,6 +17,7 @@ In my spare time I explore the new and cool things that pop up every so often, d
 * * *
 
 <!-- [todo] - Add way to create a bit more complex layouts, such as columns -->
+
 ## Likes
 
 * Clean code

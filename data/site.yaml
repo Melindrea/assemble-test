@@ -8,7 +8,7 @@ assemble:
     content:
         root: content
     options:
-        layout: master
+        layout: test
 
 site:
     title: Marie Hogebrandt Speaks
