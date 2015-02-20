@@ -1,6 +1,9 @@
 'use strict';
 
-// Connected to globbing patterns
+// var assembleSystem = require('assemble-system');
+
+// console.log(assembleSystem.addTask());
+Connected to globbing patterns
 function extend(a, b) {
     for (var key in b) {
         if (b.hasOwnProperty(key)) {
@@ -12,7 +15,7 @@ function extend(a, b) {
 
 var assemble = require('assemble'),
 extname = require('gulp-extname'),
-config = require('./config.js'),
+config = require('./config.js'), // Keep!
 buildDir = config.pkg.config.dist,
 system = config.site.assemble.system,
 content = config.site.assemble.content,
@@ -26,7 +29,7 @@ helpers = helperFiles.reduce(function (acc, fp) {
     return extend(acc, require(path.resolve(fp)));
 }, {});
 
-// Load system
+// Load system - These three should be broken out and put in assemble-system
 assemble.layouts(system.root + '/' + system.layouts + '/**.hbs');
 assemble.helpers(helpers);
 assemble.partials(system.root + '/' + system.partials + '/**.hbs');
@@ -36,6 +39,7 @@ assemble.option('site', config.site.site);
 assemble.option('env', config.env);
 assemble.option('media', config.media);
 
+// Create default tasks that can be called like: system.add<type>Task(name, source);
 assemble.task('pages', function () {
     assemble.src(content.root + '/pages/**.md')
         .pipe(extname())
