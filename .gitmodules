@@ -4,3 +4,6 @@
 [submodule "lib"]
 	path = lib
 	url = git@github.com:Melindrea/nodejs-lib.git
+[submodule "assets"]
+	path = assets
+	url = git@github.com:Melindrea/mariehogebrandt.se-assets.git
