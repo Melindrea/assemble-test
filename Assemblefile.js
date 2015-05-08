@@ -1,9 +1,6 @@
 'use strict';
 
-// var assembleSystem = require('assemble-system');
-
-// console.log(assembleSystem.addTask());
-Connected to globbing patterns
+// Connected to globbing patterns
 function extend(a, b) {
     for (var key in b) {
         if (b.hasOwnProperty(key)) {
@@ -14,11 +11,23 @@ function extend(a, b) {
 }
 
 var assemble = require('assemble'),
-extname = require('gulp-extname'),
-config = require('./config.js'), // Keep!
-buildDir = config.pkg.config.dist,
-system = config.site.assemble.system,
-content = config.site.assemble.content,
+    typogr = require('gulp-typogr'),
+    gp = require('gulp-load-plugins')(),
+    // sitemap = require('gulp-sitemap'),
+    // inlineCss = require('gulp-inline-css'),
+    // pleeease = require('gulp-pleeease'),
+    extname = require('gulp-extname'),
+    git = require('gulp-git'),
+    bump = require('gulp-bump'),
+    filter = require('gulp-filter'),
+    tagVersion = require('gulp-tag-version'),
+    permalinks = require('./lib/permalinks'),
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload,
+    config = require('./config'),
+    buildDir = config.pkg.config.buildDir,
+    system = config.site.assemble.system,
+    content = config.site.assemble.content,
 
 // [fix] - Replace once the globbing pattern works
 // helpers = system.helpers + '/{,*/}helper-**.js',
@@ -32,27 +41,63 @@ helpers = helperFiles.reduce(function (acc, fp) {
 // Load system - These three should be broken out and put in assemble-system
 assemble.layouts(system.root + '/' + system.layouts + '/**.hbs');
 assemble.helpers(helpers);
-assemble.partials(system.root + '/' + system.partials + '/**.hbs');
+assemble.helper('moment', require('helper-moment'));
+assemble.partials(system.root + '/' + system.partials + '/**/**.hbs');
+assemble.data(system.root + '/data/**/*.{yaml,json}');
 
 assemble.option(config.site.assemble.options);
 assemble.option('site', config.site.site);
 assemble.option('env', config.env);
 assemble.option('media', config.media);
 
-// Create default tasks that can be called like: system.add<type>Task(name, source);
-assemble.task('pages', function () {
-    assemble.src(content.root + '/pages/**.md')
+assemble.task('pages', ['jshint'], function () {
+    var baseContentDir = content.root + '/pages';
+    assemble.src(baseContentDir + '/**/*.md')
+        .pipe(typogr())
         .pipe(extname())
-        .pipe(assemble.dest(buildDir));
+        .pipe(permalinks())
+        .pipe(assemble.dest('.tmp'));
 });
 
-assemble.task('assets', function () {
-    assemble.src('assets/**', {layout: null})
-        .pipe(assemble.dest(buildDir));
+assemble.task('resources', function () {
+    assemble.copy('resources/**/*', buildDir);
 });
 
-// [todo] - Task to concat/etc JS (including bower/node components)
-// [todo] - Task to compile SCSS files
-// http://pleeease.io/workflow/
+function bumpAndTag(importance) {
+    // get all the files to bump version in
+    return assemble.src(['./package.json'], {layout: null})
+        // bump the version number in those files
+        .pipe(bump({type: importance}))
+        // save it back to filesystem
+        .pipe(assemble.dest('./'))
+        // commit the changed version number
+        .pipe(git.commit('Bump site version'))
 
-assemble.task('default', ['pages', 'assets']);
+        // read only one file to get the version number
+        .pipe(filter('package.json'))
+        // **tag it in the repository**
+        .pipe(tagVersion());
+}
+
+assemble.task('patch', function () { return bumpAndTag('patch'); });
+assemble.task('feature', function () { return bumpAndTag('minor'); });
+assemble.task('release', function () { return bumpAndTag('major'); });
+
+assemble.task('clean', require('del').bind(null, ['.tmp', buildDir]));
+
+assemble.task('jshint', function () {
+    return assemble.src(
+            [
+                'assets/scripts/**/*.js',
+                '*.js',
+                'templates/helpers/**/*.js'
+            ]
+        )
+        .pipe(reload({stream: true, once: true}))
+        .pipe(gp.jshint())
+        .pipe(gp.jshint.reporter('jshint-stylish'))
+        .pipe(gp.if(! browserSync.active, gp.jshint.reporter('fail')));
+});
+
+assemble.task('assets', ['jshint']);
+assemble.task('default', ['pages', 'assets', 'resources']);

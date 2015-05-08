@@ -2,6 +2,7 @@
 
 module.exports.mainNav = function (page) {
     console.log(this.options.env);
+    console.log(page);
     // this.context === page
     // console.log(this.context);
     // var fs = require('fs'),

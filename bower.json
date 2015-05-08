@@ -1,21 +1,12 @@
 {
-  "name": "MarieHogebrandt.se",
-  "private": "true",
-  "version": "0.1.0",
-  "authors": [
-    "Marie Hogebrandt <iam@mariehogebrandt.se>"
-  ],
-  "main": "index.html",
-  "license": "MIT",
-  "homepage": "http://mariehogebrandt.se",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "app/bower_components",
-    "test",
-    "tests"
-  ],
+  "name": "mariehogebrandt.se",
+  "private": true,
   "devDependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "normalize.css": "~3.0.2",
+    "normalize-opentype.css": "~0.2.4",
+    "typeplate-starter-kit": "~2.1.0",
+    "magnific-popup": "~1.0.0"
   }
 }

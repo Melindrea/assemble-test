@@ -31,3 +31,5 @@ bower_components
 # dist
 _dist
 *.sublime-workspace
+.tmp
+build

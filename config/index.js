@@ -4,7 +4,7 @@ var chalk = require('chalk');
 
 // Based on http://blog.codehatcher.com/node-js-alternate-config-file
 module.exports = (function () {
-    var pkg = require('./package.json'),
+    var pkg = require('../package'),
     YAML = require('yamljs'),
     argv = require('yargs').argv,
     dataDir = argv.dataDir || 'data',
